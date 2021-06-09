@@ -1,0 +1,32 @@
+@import './mediaQueries';
+
+.container {
+    display: flex;   
+
+    align-items: center;
+    margin: 1em 15em;
+    transition: all 0.3s linear 0s;
+}
+//Media Queries
+// @include respond-above(sm){}
+
+@include respond-below(lg) {
+    .container {
+        margin: 1em 10em;
+    }
+}
+@include respond-below(md) {
+    .container {
+        margin: 1em 8em;
+    }
+}
+@include respond-below(sm) {
+    .container {
+        margin: 1em 5em;
+    }
+}
+@include respond-below(xs) {
+    .container {
+        margin: 1em 3em;
+    }
+}

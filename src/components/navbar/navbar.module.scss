@@ -1,0 +1,21 @@
+@import '../../scss/App.scss';
+
+nav {
+    display: flex;
+    position:relative;
+    height: 10vh;
+    box-shadow: rgba(0, 0, 0, 0.5) 0.25px 0px 0.85em -0.25em;
+    z-index: 1999;
+}
+
+
+@include respond-below(xs) {
+    .navtitle {
+        display: none;
+    }
+}
+
+.container {
+    justify-content: space-between;
+    width: 100%;
+}

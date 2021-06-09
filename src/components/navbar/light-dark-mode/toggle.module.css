@@ -1,0 +1,45 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1em 15em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    margin: 1em 10em;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    margin: 1em 8em;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin: 1em 5em;
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    margin: 1em 3em;
+  }
+}
+
+@media (max-width: 575px) {
+  .togglewrapper {
+    margin-left: auto;
+  }
+}
+/*# sourceMappingURL=toggle.module.css.map */
