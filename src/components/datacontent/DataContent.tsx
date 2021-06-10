@@ -1,15 +1,31 @@
 ///<reference path='../../interface/interface.d.ts'/>
-import React, {useState, useEffect} from 'react';
+import React, {FC, useState, useEffect} from 'react';
 import { useParams } from 'react-router';
 import { RootObject, Currency } from 'Countries';
 import * as style from './datacontent.module.scss';
+import {CardContentListOne, CardContentBorder} from '../cardcontent/CardContentList';
 
 interface RouteParams {
-    name: string
+    name?: string
 }
 
+interface CountryDetailsI {
+    borders:string,
+    country: string,
+    currency: string,
+    index: number,
+    data: any,
+    dataArr:any
+    name:any,
+    language: any,
+    length:any
+}
 
-
+const renderTextWithComma = (data: any, length: any, index: any) => (
+    <span key={data.name}>
+        {data.name} {index + 1 !== length && ','}
+    </span>
+)
 const DataContent = () => {
     const {name} = useParams<RouteParams>();
     const [countryData, setCountryData] = useState([])
@@ -35,39 +51,30 @@ const DataContent = () => {
                       <h3>{name}</h3>
                       <div className={style.countryDetail}>
                             <div> 
-                                <p><b>Native Name: </b>{country.nativeName}</p>
-                                <p><b>Population: </b>{country.population}</p>
-                                <p><b>Region: </b>{country.region}</p>
-                                <p><b>Sub Region: </b>{country.subregion}</p>
-                                <p><b>Capital: </b>{country.capital}</p>
+                                <CardContentListOne 
+                                    native={country.nativeName} 
+                                    population={country.population} 
+                                    region={country.region} 
+                                    subregion={country.subregion} 
+                                    capital={country.capital}/>
                             </div>
                             <div>
                                 <p><b>Top Level Domain: </b>{country.topLevelDomain}</p>
                                 <p><b>Currencies: </b>
-                                {country.currencies.map((currency:any, index:any) => {
-                                    return (
-                                        <span key={currency.name}>
-                                            {index + 1 !== country.currencies.length
-                                            ? `${currency.name}, `
-                                            : currency.name}
-                                        </span>
-                                        );
+                                {country.currencies.map((data:any, length:any, index:any) => {
+                                   
+                                    return  renderTextWithComma(data, length, index)
                                     })}
                                 </p>
                                 <p><b>Languages: </b>
-                                {country.languages.map((language:any, index:any) => {
-                                    return (
-                                        <span key={language.name}>
-                                            {index + 1 !== country.languages.length
-                                            ? `${language.name}, `
-                                            : language.name}
-                                        </span>
-                                        );
+                                {country.languages.map((data:any, length:any, index:any) => {
+                          
+                                        return renderTextWithComma(data, length, index)
                                     })}
                                 </p>
                             </div>
                       </div>
-                      <div>border countries</div>
+                      borders: <CardContentBorder borders={country.borders}/>
                   </div>
               </div>
             )}
