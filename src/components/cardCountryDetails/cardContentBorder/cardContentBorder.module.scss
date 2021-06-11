@@ -1,0 +1,20 @@
+@import '../../../scss/App.scss';
+
+.borderContainer {
+    display: flex;
+    b {
+        margin-top: 5px;
+    }
+}
+
+.borders {
+    display: flex;
+    width: 30vw;
+    flex-wrap: wrap;
+    span {
+        margin: 5px;
+        padding: 0 5px;
+        border: 1px solid;
+        border-radius: 5px;
+    }
+}

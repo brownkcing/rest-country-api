@@ -1,5 +1,13 @@
 @import '../../scss/App.scss';
 
+h3 {
+    margin-top: 0;
+}
+
+p {
+   height: 5px;
+}
+
 .imageDetails {
     img {
         width: 300px;
@@ -8,15 +16,12 @@
     }
 }
 
-h3 {
-    margin-top: 0;
-}
-
 .dataContent {
     margin-top: 3em;
     display: flex;
-    justify-content: space-between;
-    width: 100vw;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    width: 95vw;
 }
 
 .imageDetails {
@@ -24,13 +29,23 @@ h3 {
 }
 
 .dataDetails {
-    width: 70%;
-    margin-left: 20px;
+    margin-top: 1em;
+
     display: flex;
     flex-direction: column;
 }
 
 .countryDetail {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+}
+
+@include respond-below(xs){
+    .imageDetails {
+        text-align: center;
+    }
+    .dataContent {
+        justify-content: center;
+    }
 }

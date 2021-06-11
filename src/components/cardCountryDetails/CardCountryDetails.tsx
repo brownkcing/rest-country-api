@@ -2,15 +2,16 @@
 import React, {FC, useState, useEffect} from 'react';
 import { useParams } from 'react-router';
 import { RootObject, Currency } from 'Countries';
-import * as style from './datacontent.module.scss';
-import {CardContentListOne, CardContentBorder} from '../cardcontent/CardContentList';
+import * as style from './cardCountryDetails.module.scss';
+import {CardContentListOne} from './cardContent/CardContentList';
+import CardContentBorders from './cardContentBorder/CardContentBorders';
 
 interface RouteParams {
     name?: string
 }
 
 interface CountryDetailsI {
-    borders:string,
+    borders:any[],
     country: string,
     currency: string,
     index: number,
@@ -18,15 +19,14 @@ interface CountryDetailsI {
     dataArr:any
     name:any,
     language: any,
-    length:any
 }
 
-const renderTextWithComma = (data: any, length: any, index: any) => (
+const renderTextWithComma = (data: any, dataArr: any, index: any) => (
     <span key={data.name}>
-        {data.name} {index + 1 !== length && ','}
+        {index + 1 < dataArr ? `${data.name}, ` : data.name}
     </span>
 )
-const DataContent = () => {
+const CardCountryDetails = () => {
     const {name} = useParams<RouteParams>();
     const [countryData, setCountryData] = useState([])
     const countryCall = `https://restcountries.eu/rest/v2/name/${name}?fullText=true`
@@ -61,20 +61,18 @@ const DataContent = () => {
                             <div>
                                 <p><b>Top Level Domain: </b>{country.topLevelDomain}</p>
                                 <p><b>Currencies: </b>
-                                {country.currencies.map((data:any, length:any, index:any) => {
-                                   
-                                    return  renderTextWithComma(data, length, index)
+                                {country.currencies.map((data:any, index:any, dataArr:any) => {
+                                        return renderTextWithComma(data, index, dataArr)
                                     })}
                                 </p>
                                 <p><b>Languages: </b>
-                                {country.languages.map((data:any, length:any, index:any) => {
-                          
-                                        return renderTextWithComma(data, length, index)
+                                {country.languages.map((data:any, index:any, dataArr:any) => {
+                                        return renderTextWithComma(data, dataArr.length, index)
                                     })}
                                 </p>
                             </div>
                       </div>
-                      borders: <CardContentBorder borders={country.borders}/>
+                        <CardContentBorders borders={country.borders} />
                   </div>
               </div>
             )}
@@ -83,4 +81,4 @@ const DataContent = () => {
     )
 }
 
-export default DataContent;
+export default CardCountryDetails ;

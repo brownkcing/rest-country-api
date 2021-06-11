@@ -2,11 +2,11 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {RootObject, Language} from 'Countries';
-import * as style from './content.module.scss';
+import * as style from './cardCountryList.module.scss';
 
 
 
-const Content = ()=> {
+const CardCountryList = ()=> {
     const [state, setState] = useState([]);
     useEffect(()=>{
         const apiUrl = `https://restcountries.eu/rest/v2/all`;
@@ -34,4 +34,4 @@ const Content = ()=> {
     )
 }
 
-export default Content;
+export default CardCountryList;

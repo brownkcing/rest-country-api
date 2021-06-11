@@ -17,16 +17,16 @@
 }
 @include respond-below(md) {
     .container {
-        margin: 1em 8em;
+        margin: 1em 2em;
     }
 }
-@include respond-below(sm) {
-    .container {
-        margin: 1em 5em;
-    }
-}
+// @include respond-below(sm) {
+//     .container {
+//         margin: 1em em;
+//     }
+// }
 @include respond-below(xs) {
     .container {
-        margin: 1em 3em;
+        margin: 1em 0.5em;
     }
 }

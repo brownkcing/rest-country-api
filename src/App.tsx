@@ -2,8 +2,8 @@ import React from 'react';
 import './scss/App.scss'
 import Navbar from './components/navbar/Navbar';
 import SearchBar from './components/searchbar/SearchBar';
-import Content from './components/content/Content';
-import DataContent from './components/datacontent/DataContent';
+import CardCountryList from './components/cardCountryList/CardCountryList';
+import CardCountryDetails from './components/cardCountryDetails/CardCountryDetails';
 import { Switch, Route } from 'react-router';
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
       </div>
       <Switch>
         <div className='container'>
-          <Route exact path='/' component={Content} />
-          <Route path="/:name" children={<DataContent />} />
+          <Route exact path='/' component={CardCountryList} />
+          <Route path="/:name" children={<CardCountryDetails />} />
         </div>
       </Switch>
     </>

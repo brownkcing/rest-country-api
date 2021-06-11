@@ -7,8 +7,7 @@ interface CardContentListOneI {
     region?:string,
     subregion?:string, 
     capital?:string,
-    data?: any,
-    length?:any,
+  
 }
 export const CardContentListOne:FC<CardContentListOneI> = ({native, population, region, subregion, capital}) => {
     return (
@@ -20,20 +19,4 @@ export const CardContentListOne:FC<CardContentListOneI> = ({native, population, 
             <p><b>Capital: </b>{capital}</p>
         </>
     )
-}
-
-export const CardContentBorder= ({borders}:any) => {
-    return(
-        <>
-        <span>
-            {borders}
-        </span>
-            {/* {borders.forEach(({index}:any) =>
-                <span>
-                   {index}
-                </span>
-            )} */}
-        </>
-    )
 };
-// (index <  item.length) ? console.log(`${item}, `) : console.log(item)
