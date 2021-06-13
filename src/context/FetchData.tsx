@@ -1,18 +1,19 @@
 ///<reference path='../interface/interface.d.ts'/>
 import React, {createContext, useState, useEffect} from 'react';
-// import {RootObject, Language} from 'Countries';
+import {RootObject, Language} from 'Countries';
 
 // interface ContextProps {
 //     initialUrl: RootObject[];
 //     setInitialUrl: Function;
 // }
 
+
 const apiUrl = 'https://restcountries.eu/rest/v2/all';
 
 export const ContextApiCountry = createContext([]);
 
 export const ContextApiProviderCountry = ({children}:any) => {
-    const [initialUrl, setInitialUrl] = useState<any>();
+    const [initialUrl, setInitialUrl] = useState<any>([]);
     useEffect(()=>{
         fetch(apiUrl)
         .then(res => res.json())
