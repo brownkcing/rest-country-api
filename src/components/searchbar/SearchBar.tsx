@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import * as style from "./searchbar.module.scss";
+import * as style from "./searchBar.module.scss";
 import Filter from "./filter/Filter";
 
 const SearchBar = () => {

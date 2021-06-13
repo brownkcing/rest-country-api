@@ -12,8 +12,8 @@ const CardContentBorders = ({borders}:(CountryBordersI)) => {
         <div className={style.borderContainer}>
             <b>Borders: </b>
                 <div className={style.borders}>
-                    {borders.map((item:any)=>
-                        <span>{item}</span>
+                    {borders.map((item:any, index:any)=>
+                        <span key={index}>{item}</span>
                     )}
             </div>
         </div>

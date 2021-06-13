@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import * as style from './filter.module.scss';
 
 
@@ -7,17 +7,23 @@ const tableData = [{id:0, label: 'Africa'}, {id:1, label: 'America'}, {id:2, lab
 const FilterDrop = () => {
     const [isOpen, setOpen] = useState(false);
     const [items, setItem] = useState(tableData);
+    const [placeholder, setPlaceholder] = useState("Select Regions");
+
+    const handleSelect = (value:any) => {
+        setPlaceholder(value)
+        setOpen(false);
+    }
     
     const toggleDropdown = () => {
         setOpen(!isOpen);
     }
     return(
         <div className={style.dropdown}>
-            <div className={style.dropdownHeader} onClick={toggleDropdown}>
+            <div className={style.dropdownHeader} onClick={toggleDropdown}>{placeholder}
                 <div className={`${style.dropdownBody} ${isOpen && style.open}`}>
                     {items.map((item:any)=>(
-                        <li key={item.id}>
-                            <a>{item.label}</a>
+                        <li key={item.id} onClick={() => handleSelect(item.label)}>
+                            <a href="#">{item.label}</a>
                         </li>
                     ))}
                 </div>

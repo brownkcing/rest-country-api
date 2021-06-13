@@ -17,6 +17,7 @@ img {
     &:hover {
         transform: scale(1.05);
     }
+  
     cursor: pointer;
 }
 
@@ -25,11 +26,15 @@ img {
     justify-content: space-between;
     flex-wrap: wrap;
     text-align: center;
+    a {
+        text-decoration: none;
+        color: black;
+    }
 }
 
 .contentData{
     text-align: start;
-    margin: 0 1em;
+    margin: 0.5em 1em;
 }
 
 @include respond-below (xs) {
