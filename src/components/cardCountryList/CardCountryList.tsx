@@ -1,27 +1,29 @@
 ///<reference path='../../interface/interface.d.ts'/>
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useContext} from 'react';
+import { useParams } from 'react-router';
 import {RootObject, Language} from 'Countries';
 import * as style from './cardCountryList.module.scss';
 import { ContextApiCountry } from '../../context/FetchData';
 
+interface RouteParams {
+    field?: string
+}
+
+
 
 const CardCountryList = () => {
-    // const [state, setState] = useState([]);
-    const initialUrl = useContext(ContextApiCountry);
-  
-    // useEffect(()=>{
-    //     const apiUrl = `https://restcountries.eu/rest/v2/all`;
-    //     fetch(apiUrl)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         setState(data);
-    //     })
-    // },[setState]);
+    const {valueApiUrl, filterRegionData}:any = useContext(ContextApiCountry)
+    const [initialFilterRegionData, setInitialFilterRegionData] = filterRegionData;
+    const [stateApiUrl, setStateApiUrl] = valueApiUrl;
+
+    const {field} = useParams<RouteParams>();
     
+
     return (
+
         <div className={style.gridContainer}>
-            {initialUrl.map ( (countries:RootObject & Language, index) =>
-       
+                    {console.log(initialFilterRegionData)}
+            {stateApiUrl.map ( (countries:RootObject & Language, index:any) =>
                     <a href={`/${(countries.name)}`} key={index}>
                     <div  className={style.contentWrapper} >
                         <img src={countries.flag} alt="countries" />
