@@ -1,5 +1,5 @@
 ///<reference path='../../interface/interface.d.ts'/>
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import {RootObject, Language} from 'Countries';
 import * as style from './cardCountryList.module.scss';
@@ -12,15 +12,24 @@ interface RouteParams {
 const CardCountryList = () => {
     const {valueApiUrl, filterRegionData}:any = useContext(ContextApiCountry)
     const [initialFilterRegionData, setInitialFilterRegionData] = filterRegionData;
-    const [stateApiUrl, setStateApiUrl] = valueApiUrl;
+    const [stateApiUrl, setStateApiUrl] = useState(valueApiUrl);
 
     const {field} = useParams<RouteParams>();
+
+    useEffect(() => {
+        const dump = valueApiUrl.filter((item: any) => item.region === initialFilterRegionData)
+        setStateApiUrl(dump)
+
+    }, [initialFilterRegionData])
+
+    useEffect(() => {
+        setStateApiUrl(valueApiUrl)
+    }, [valueApiUrl])
     
 
     return (
 
         <div className={style.gridContainer}>
-                    {console.log(initialFilterRegionData)}
             {stateApiUrl.map ( (countries:RootObject & Language, index:any) =>
                     <a href={`/${(countries.name)}`} key={index}>
                     <div  className={style.contentWrapper} >

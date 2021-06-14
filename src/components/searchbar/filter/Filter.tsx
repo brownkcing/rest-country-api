@@ -3,7 +3,7 @@ import * as style from './filter.module.scss';
 import { ContextApiCountry } from '../../../context/FetchData';
 
 
-const tableData = [{id:0, label: 'Africa'}, {id:1, label: 'America'}, {id:2, label: 'Asia'}, {id:3, label: 'Europe'}, {id:4, label: 'Oceania'} ]
+const tableData = [{id:0, label: 'Africa'}, {id:1, label: 'Americas'}, {id:2, label: 'Asia'}, {id:3, label: 'Europe'}, {id:4, label: 'Oceania'} ]
 
 const FilterDrop = ({passFilterProps}:any) => {
     const {filterRegionData}:any = useContext(ContextApiCountry)

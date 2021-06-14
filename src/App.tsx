@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './scss/App.scss'
 import Navbar from './components/navbar/Navbar';
 import SearchBar from './components/searchbar/SearchBar';
 import CardCountryList from './components/cardCountryList/CardCountryList';
 import CardCountryDetails from './components/cardCountryDetails/CardCountryDetails';
 import { Switch, Route } from 'react-router';
-import ContextApiProviderCountry from './context/FetchData';
+import ContextApiProviderCountry, {ContextApiCountry} from './context/FetchData';
 
 function App() {
+
+
   return (
     <>
     <ContextApiProviderCountry>
@@ -17,7 +19,7 @@ function App() {
       </div>
       <div className='container'>
       <Switch>
-          <Route exact path='/' component={CardCountryList} />
+          <Route exact path='/' children={<CardCountryList />} />
           <Route path={`/:name`} children={<CardCountryDetails />} />
       </Switch>
       </div>

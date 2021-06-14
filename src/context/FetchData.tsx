@@ -27,7 +27,7 @@ export const ContextApiProviderCountry = ({children}:any) => {
     return (
         <ContextApiCountry.Provider
                 value={{originalUrl: apiUrl,
-                        valueApiUrl: [initialUrl, setInitialUrl], 
+                        valueApiUrl: initialUrl,
                         filterRegionData: [initialFilterRegionData, setInitialFilterRegionData],
                 }}
         >
