@@ -9,8 +9,6 @@ interface RouteParams {
     field?: string
 }
 
-
-
 const CardCountryList = () => {
     const {valueApiUrl, filterRegionData}:any = useContext(ContextApiCountry)
     const [initialFilterRegionData, setInitialFilterRegionData] = filterRegionData;

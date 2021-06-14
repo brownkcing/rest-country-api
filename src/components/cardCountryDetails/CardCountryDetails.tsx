@@ -1,9 +1,10 @@
 ///<reference path='../../interface/interface.d.ts'/>
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { useParams } from 'react-router';
 import * as style from './cardCountryDetails.module.scss';
 import {CardContentListOne} from './cardContent/CardContentList';
 import CardContentBorders from './cardContentBorder/CardContentBorders';
+import { ContextApiCountry } from '../../context/FetchData';
 
 interface RouteParams {
     name?: string
@@ -26,23 +27,26 @@ const renderTextWithComma = (data: any, dataArr: any, index: any) => (
     </span>
 );
 const CardCountryDetails = () => {
+    const {originalUrl}:any = useContext(ContextApiCountry)
     const {name} = useParams<RouteParams>();
     const [countryData, setCountryData] = useState([]);
-    const countryCall = `https://restcountries.eu/rest/v2/name/${name}?fullText=true`;
+    const countryCall = `${originalUrl}/name/${name}?fullText=true`;
+
+
 
     useEffect(()=>{
-        const cUrl = countryCall;
-        fetch(cUrl)
+        fetch(countryCall)
         .then(res => res.json())
         .then(data => {
             setCountryData(data);
         })
-    });
+    },[setCountryData]);
 
     return (
         <>
             {countryData.map((country:(any), index,)=>
                   <div className={style.dataContent} key={index}>
+                
                   <div className={style.imageDetails} key={index+1}>
                       <img src={country.flag} alt='pic' />
                   </div>

@@ -18,7 +18,7 @@ function App() {
       <div className='container'>
       <Switch>
           <Route exact path='/' component={CardCountryList} />
-          <Route path="/:name" children={<CardCountryDetails />} />
+          <Route path={`/:name`} children={<CardCountryDetails />} />
       </Switch>
       </div>
       </ContextApiProviderCountry>
