@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import * as style from "./search.module.scss"
-import { Capitalize } from '../../../utils/CapitalizeFirst';
 import { ContextApiCountry } from '../../../context/FetchData';
 
 
@@ -10,11 +9,9 @@ const SearchComp = () => {
     const {searchWithFilter}:any = useContext(ContextApiCountry);
     const [searchFilter, setSearchFilter] = searchWithFilter;
 
-    
-
     const inputChange = (e:any) => {
         e.preventDefault();
-        const toUpper = Capitalize(e.target.value)
+        const toUpper =(e.target.value).toUpperCase();
         setSearchFilter(toUpper);
     }
 

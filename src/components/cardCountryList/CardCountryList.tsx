@@ -19,7 +19,7 @@ const CardCountryList = () => {
     
     useEffect(() => {
         //Search
-        const searchForCountry = valueApiUrl.filter((item:RootObject) => item.name.includes(searchFilter));
+        const searchForCountry = valueApiUrl.filter((item:RootObject) => item.name.toUpperCase().includes(searchFilter));
         setStateApiUrl(searchForCountry)
     }, [searchFilter]);
 
