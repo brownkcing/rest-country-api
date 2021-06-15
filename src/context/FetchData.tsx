@@ -1,6 +1,6 @@
 ///<reference path='../interface/interface.d.ts'/>
-import React, {FC, createContext, useState, useEffect} from 'react';
-import { RootObject } from 'Countries';
+import React, {createContext, useState, useEffect} from 'react';
+// import { RootObject } from 'Countries';
  
 
 
@@ -12,7 +12,7 @@ export const ContextApiProviderCountry = ({children}:any) => {
     const [initialFilterRegionData, setInitialFilterRegionData] = useState('');
 
     useEffect(()=>{
-        fetch(`${apiUrl}`)
+        fetch('https://restcountries.eu/rest/v2')
         .then(res => res.json())
         .then(data => {
             setInitialUrl(data);
