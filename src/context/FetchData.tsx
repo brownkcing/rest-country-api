@@ -1,10 +1,8 @@
 ///<reference path='../interface/interface.d.ts'/>
-import React, {createContext, useState, useEffect} from 'react';
-import { useParams } from 'react-router';
+import React, {FC, createContext, useState, useEffect} from 'react';
+import { RootObject } from 'Countries';
+ 
 
-interface RouteParams {
-    field?: string
-}
 
 export const ContextApiCountry = createContext({});
 
@@ -13,9 +11,6 @@ export const ContextApiProviderCountry = ({children}:any) => {
     const [initialUrl, setInitialUrl] = useState<any>([]);
     const [initialFilterRegionData, setInitialFilterRegionData] = useState('');
 
-    // const parseUrl = `region/${initialFilterRegionData}`;
-
-    
     useEffect(()=>{
         fetch(`${apiUrl}`)
         .then(res => res.json())
@@ -27,7 +22,7 @@ export const ContextApiProviderCountry = ({children}:any) => {
     return (
         <ContextApiCountry.Provider
                 value={{originalUrl: apiUrl,
-                        valueApiUrl: [initialUrl, setInitialUrl], 
+                        valueApiUrl: initialUrl, 
                         filterRegionData: [initialFilterRegionData, setInitialFilterRegionData],
                 }}
         >

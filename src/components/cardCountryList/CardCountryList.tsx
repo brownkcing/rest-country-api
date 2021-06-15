@@ -1,26 +1,31 @@
 ///<reference path='../../interface/interface.d.ts'/>
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import {RootObject, Language} from 'Countries';
 import * as style from './cardCountryList.module.scss';
 import { ContextApiCountry } from '../../context/FetchData';
 
-interface RouteParams {
-    field?: string
-}
 
 const CardCountryList = () => {
-    const {valueApiUrl, filterRegionData}:any = useContext(ContextApiCountry)
+    const {valueApiUrl, filterRegionData}:any = useContext(ContextApiCountry);
     const [initialFilterRegionData, setInitialFilterRegionData] = filterRegionData;
-    const [stateApiUrl, setStateApiUrl] = valueApiUrl;
+    const [stateApiUrl, setStateApiUrl] = useState(valueApiUrl);
 
-    const {field} = useParams<RouteParams>();
-    
+
+
+    useEffect(() => {
+        const filteringRegion = valueApiUrl.filter((item: any) => item.region === initialFilterRegionData);
+        initialFilterRegionData === 'All'? setStateApiUrl(valueApiUrl) : setStateApiUrl(filteringRegion);
+    }, [initialFilterRegionData]);
+
+    useEffect(() => {
+        setStateApiUrl(valueApiUrl)
+    }, [valueApiUrl]);
 
     return (
 
         <div className={style.gridContainer}>
-                    {console.log(initialFilterRegionData)}
+                    {console.log(stateApiUrl)}
             {stateApiUrl.map ( (countries:RootObject & Language, index:any) =>
                     <a href={`/${(countries.name)}`} key={index}>
                     <div  className={style.contentWrapper} >
