@@ -23,10 +23,11 @@ img {
 
 .gridContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     text-align: center;
     a {
+        margin: 0 10px;
         text-decoration: none;
         color: black;
     }

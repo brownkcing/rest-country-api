@@ -1,8 +1,13 @@
 ///<reference path='../interface/interface.d.ts'/>
-import React, {createContext, useState, useEffect} from 'react';
-// import { RootObject } from 'Countries';
+import React, {FC, createContext, useState, useEffect} from 'react';
+import { RootObject } from 'Countries';
  
-
+// type ContextI = {
+//     originalUrl: any,
+//     valueApiurl: any,
+//     filterRegionData: any,
+//     searchWithFilter: any
+// }
 
 export const ContextApiCountry = createContext({});
 

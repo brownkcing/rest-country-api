@@ -2,16 +2,20 @@ import React, { useState, useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import * as style from "./search.module.scss"
+import { Capitalize } from '../../../utils/CapitalizeFirst';
 import { ContextApiCountry } from '../../../context/FetchData';
 
 
 const SearchComp = () => {
-    const {searchWithFilter, valueApiUrl}:any = useContext(ContextApiCountry);
+    const {searchWithFilter}:any = useContext(ContextApiCountry);
     const [searchFilter, setSearchFilter] = searchWithFilter;
+
+    
 
     const inputChange = (e:any) => {
         e.preventDefault();
-        setSearchFilter(e.target.value);
+        const toUpper = Capitalize(e.target.value)
+        setSearchFilter(toUpper);
     }
 
     useEffect(() => {
@@ -25,6 +29,7 @@ const SearchComp = () => {
                 <FontAwesomeIcon icon={faSearch} />
             </button>
             <input type="text" placeholder="Search for a country"></input>
+        {console.log(searchFilter)}
         </form>
     )
 };

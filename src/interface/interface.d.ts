@@ -33,7 +33,7 @@ declare module "Countries" {
   }
 
   export interface RootObject {
-    name?: string;
+    name: string;
     topLevelDomain?: string[];
     alpha2Code?: string;
     alpha3Code?: string;
