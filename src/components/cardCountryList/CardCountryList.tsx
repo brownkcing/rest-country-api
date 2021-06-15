@@ -6,24 +6,32 @@ import { ContextApiCountry } from '../../context/FetchData';
 
 
 const CardCountryList = () => {
-    const {valueApiUrl, filterRegionData}:any = useContext(ContextApiCountry);
+    const {valueApiUrl, filterRegionData, searchWithFilter}:any = useContext(ContextApiCountry);
     const [initialFilterRegionData, setInitialFilterRegionData] = filterRegionData;
+    const [searchFilter, setSearchFilter] = searchWithFilter;
     const [stateApiUrl, setStateApiUrl] = useState(valueApiUrl);
 
     useEffect(() => {
-        const filteringRegion = valueApiUrl.filter((item: any) => item.region === initialFilterRegionData);
+        //Filter
+        const filteringRegion = valueApiUrl.filter((item:any) => item.region === initialFilterRegionData);
         initialFilterRegionData === 'All'? setStateApiUrl(valueApiUrl) : setStateApiUrl(filteringRegion);
-    }, [initialFilterRegionData]);
+
+        //Search
+        const searchForCountry = valueApiUrl.filter((item:any)=> item.name === searchFilter);
+        searchForCountry === ''? setStateApiUrl(valueApiUrl) : setStateApiUrl(searchForCountry);
+    }, [initialFilterRegionData, searchFilter]);
+
 
     useEffect(() => {
         setStateApiUrl(valueApiUrl)
     }, [valueApiUrl]);
 
-    return (
 
+    return (
         <div className={style.gridContainer}>
             {stateApiUrl.map ( (countries:RootObject & Language, index:any) =>
                     <a href={`/${(countries.name)}`} key={index}>
+                            {console.log(searchFilter)}
                     <div  className={style.contentWrapper} >
                         <img src={countries.flag} alt="countries" />
                         <div className={style.contentData}>

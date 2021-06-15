@@ -30,6 +30,7 @@ const FilterDrop = () => {
                         <li key={item.id} onClick={() => handleSelect(item.label)}>
                             <a href="#">{item.label}</a>
                         </li>
+                        
                     ))}
                 </div>
             </div>
