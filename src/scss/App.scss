@@ -2,10 +2,14 @@
 
 .container {
     display: flex;   
-
     align-items: center;
     margin: 1em 15em;
     transition: all 0.3s linear 0s;
+}
+
+.wrapper {
+    background: rgba(226, 226, 226, 0.596);
+    margin: 1em;
 }
 //Media Queries
 // @include respond-above(sm){}

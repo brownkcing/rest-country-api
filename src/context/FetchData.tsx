@@ -1,6 +1,6 @@
 ///<reference path='../interface/interface.d.ts'/>
 import React, {FC, createContext, useState, useEffect} from 'react';
-import { RootObject } from 'Countries';
+// import { RootObject } from 'Countries';
  
 // type ContextI = {
 //     originalUrl: any,

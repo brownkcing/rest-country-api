@@ -1,5 +1,20 @@
 @import '../../../scss/App.scss';
 
+.arrow {
+    margin: 7px;
+    float: right;
+    border: solid rgba(0, 0, 0, 0.473);
+    border-width: 0 3px 3px 0;
+
+    padding: 3px;
+    transform: rotate(-45deg);
+    transition: all 0.09s linear 0s;
+ 
+}
+.arrow.open {
+    transform: rotate(45deg); 
+}
+
 .dropdown {
     // width: var(--btn-lg);
     display: flex;
@@ -22,9 +37,8 @@
     background-color: white;
     list-style-type: none;
     z-index: 2000;
-    &:focus,
-    div.box:focus {
-        border: 4px solid rgb(173, 173, 173);
+    &:hover {
+        box-shadow: 0 0 5px rgb(173, 173, 173);
         outline: none;
     }
 }

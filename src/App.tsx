@@ -12,7 +12,8 @@ function App() {
     <>
     <ContextApiProviderCountry>
       <Navbar />
-      <div className='container'>
+      <div className='wrapper'>
+        <div className='container'>
         <SearchFilter />
       </div>
       <div className='container'>
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/' component={CardCountryList} />
           <Route path={`/:name`} children={<CardCountryDetails />} />
       </Switch>
+      </div>
       </div>
       </ContextApiProviderCountry>
     </>
