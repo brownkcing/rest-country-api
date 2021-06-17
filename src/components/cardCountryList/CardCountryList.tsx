@@ -6,10 +6,12 @@ import { ContextApiCountry } from '../../context/FetchData';
 
 
 const CardCountryList = () => {
-    const {valueApiUrl, filterRegionData, searchWithFilter}:any = useContext(ContextApiCountry);
+    const {valueApiUrl, filterRegionData, searchWithFilter, themeName} = useContext(ContextApiCountry);
     const [initialFilterRegionData, setInitialFilterRegionData] = filterRegionData;
+    const [theme, setTheme] = themeName;
     const [searchFilter, setSearchFilter] = searchWithFilter;
     const [stateApiUrl, setStateApiUrl] = useState(valueApiUrl);
+
 
     useEffect(() => {
         //Filter
@@ -34,8 +36,7 @@ const CardCountryList = () => {
         <div className={style.gridContainer}>
             {stateApiUrl.map ( (countries:RootObject, index:number) =>
                     <a href={`/${(countries.name)}`} key={index}>
-
-                    <div  className={style.contentWrapper} >
+                    <div className={`${style.contentWrapper} ${theme == 'dayMode' && style.dark}`} >
                         <img src={countries.flag} alt="countries" />
                         <div className={style.contentData}>
                             <h3>{countries.name}</h3>

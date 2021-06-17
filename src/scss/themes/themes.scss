@@ -1,0 +1,12 @@
+@import '../variables/variables.scss';
+
+$themes: (
+    lightMode: (
+        color:$dark,
+        background:$light
+    )
+    darkMode: (
+        color: $light,
+        background:$dark
+    )
+)

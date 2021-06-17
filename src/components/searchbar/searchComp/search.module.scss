@@ -12,7 +12,7 @@ svg {
         background: none;
         position: relative;
         margin-top: 8px;
-        top: 2px;
+        top: 0;
         left: 15px;
         width: 5px;
         height: 12px;
@@ -25,6 +25,9 @@ svg {
         padding: 0 3em;
         width: 20em;
         height: 35px;
+        &::placeholder{
+            color:grey;
+        }
         &:focus::placeholder {
             color: transparent;
         }
@@ -34,5 +37,24 @@ svg {
             border: 1px solid rgb(173, 173, 173);
             outline: none;
         }
+    }
+}
+
+.dark {
+    input {
+        background: $dark;
+        color:$lighter;
+        &::placeholder {
+            color: $lighter;
+        }
+        &:focus,
+        textarea:focus {
+            box-shadow: 0 0 5px rgb(59, 59, 59);
+            border: 1px solid rgb(100, 100, 100);
+            outline: none;
+        }
+    }
+    svg {
+        color:$lighter;
     }
 }

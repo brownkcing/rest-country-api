@@ -1,0 +1,15 @@
+@import '../../scss/App.scss';
+
+
+.wrapper {
+    background: rgba(226, 226, 226, 0.596);
+    margin: -1em 0;
+    height: auto !important;
+    min-height: 90vh;
+}
+
+
+.dark {
+    background-color: $darker;
+    color: $light;
+}

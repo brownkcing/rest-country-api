@@ -6,8 +6,9 @@ import { ContextApiCountry } from '../../../context/FetchData';
 
 
 const SearchComp = () => {
-    const {searchWithFilter}:any = useContext(ContextApiCountry);
+    const {searchWithFilter, themeName}:any = useContext(ContextApiCountry);
     const [searchFilter, setSearchFilter] = searchWithFilter;
+    const [theme, setTheme] = themeName;
 
     const inputChange = (e:any) => {
         e.preventDefault();
@@ -21,12 +22,11 @@ const SearchComp = () => {
 
     
     return(
-        <form className={style.searchbar} onChange={inputChange}>
+        <form className={`${style.searchbar} ${theme == 'dayMode' && style.dark}`} onChange={inputChange}>
             <button type="submit">
                 <FontAwesomeIcon icon={faSearch} />
             </button>
             <input type="text" placeholder="Search for a country"></input>
-        {console.log(searchFilter)}
         </form>
     )
 };
