@@ -1,38 +1,27 @@
 ///<reference path='../../interface/interface.d.ts'/>
 import React, {useState, useEffect, useContext} from 'react';
 import { useParams } from 'react-router';
-import * as style from './cardCountryDetails.module.scss';
 import {CardContentListOne} from './cardContent/CardContentList';
 import CardContentBorders from './cardContentBorder/CardContentBorders';
 import { ContextApiCountry } from '../../context/FetchData';
+import { RootObject } from 'Countries';
+import * as style from './cardCountryDetails.module.scss';
 
 interface RouteParams {
     name?: string
 }
-
-// interface CountryDetailsI {
-//     borders:any[],
-//     country: string,
-//     currency: string,
-//     index: number,
-//     data: any,
-//     dataArr:any
-//     name:any,
-//     language: any,
-// }
 
 const renderTextWithComma = (data: any, dataArr: any, index: any) => (
     <span key={data.name}>
         {index + 1 < dataArr ? `${data.name}, ` : data.name}
     </span>
 );
+
 const CardCountryDetails = () => {
-    const {originalUrl}:any = useContext(ContextApiCountry)
+    const {originalUrl} = useContext(ContextApiCountry)
     const {name} = useParams<RouteParams>();
     const [countryData, setCountryData] = useState([]);
     const countryCall = `${originalUrl}/name/${name}?fullText=true`;
-
-
 
     useEffect(()=>{
         fetch(countryCall)
@@ -44,7 +33,7 @@ const CardCountryDetails = () => {
 
     return (
         <>
-            {countryData.map((country:(any), index,)=>
+            {countryData.map((country:(RootObject), index,)=>
                   <div className={style.dataContent} key={index}>
                 
                   <div className={style.imageDetails} key={index+1}>

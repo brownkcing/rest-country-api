@@ -8,6 +8,7 @@ import { ContextApiCountry } from "../../context/FetchData";
 function Navbar() {
   const location = useLocation();
   const {themeName} = useContext(ContextApiCountry);
+  
   const [theme, setTheme] = themeName;
 
   return (

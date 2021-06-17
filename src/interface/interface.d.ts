@@ -42,7 +42,7 @@ declare module "Countries" {
     altSpellings?: string[];
     region?: string;
     subregion?: string;
-    population?: number;
+    population: any;
     latlng?: number[];
     demonym?: string;
     area?: number;
@@ -51,8 +51,8 @@ declare module "Countries" {
     borders?: string[];
     nativeName?: string;
     numericCode?: string;
-    currencies?: Currency[];
-    languages?: Language[];
+    currencies: any;
+    languages: any;
     translations?: Translations;
     flag?: string;
     regionalBlocs?: RegionalBloc[];

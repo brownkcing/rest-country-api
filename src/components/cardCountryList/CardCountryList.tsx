@@ -12,7 +12,6 @@ const CardCountryList = () => {
     const [searchFilter, setSearchFilter] = searchWithFilter;
     const [stateApiUrl, setStateApiUrl] = useState(valueApiUrl);
 
-
     useEffect(() => {
         //Filter
         const filteringRegion = valueApiUrl.filter((item:RootObject) => item.region === initialFilterRegionData);
@@ -25,12 +24,9 @@ const CardCountryList = () => {
         setStateApiUrl(searchForCountry)
     }, [searchFilter]);
 
-
-
     useEffect(() => {
         setStateApiUrl(valueApiUrl)
     }, [valueApiUrl]);
-
 
     return (
         <div className={style.gridContainer}>

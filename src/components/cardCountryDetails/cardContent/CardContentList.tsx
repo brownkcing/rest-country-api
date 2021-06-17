@@ -9,7 +9,8 @@ interface CardContentListOneI {
     capital?:string,
   
 }
-export const CardContentListOne:FC<CardContentListOneI> = ({native, population, region, subregion, capital}) => {
+export const CardContentListOne:FC<CardContentListOneI> = (props) => {
+    const {native, population, region, subregion, capital} = props;
     return (
         <>
             <p><b>Native Name: </b>{native}</p>

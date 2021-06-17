@@ -1,5 +1,16 @@
 @import '../../../scss/App';
 
+.moon {
+    color: $darker;
+    margin: 0 0.5em;
+}
+
+.sun {
+    color: $lighter;
+    margin: 0 0.5em;
+}
+
+
 @include respond-below(xs) {
     .togglewrapper {
         margin-left: auto;

@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import * as style from './toggle.module.scss';
 import { ContextApiCountry } from '../../../context/FetchData';
 
@@ -12,7 +14,12 @@ const ToggleMode = () => {
     }
     return (
         <div className={style.togglewrapper}>
-           <button onClick={toggleMode}>Dark Mode</button> 
+            <span>{ theme == 'dayMode' ? 
+                        <FontAwesomeIcon className={style.sun} onClick={toggleMode} icon={faSun} />
+                            :                         
+                        <FontAwesomeIcon className={style.moon} onClick={toggleMode} icon={faMoon} /> }
+            </span>
+            <span>{theme == 'dayMode' ? 'Day Mode' : 'Dark Mode'}</span> 
         </div>
     )
 }
