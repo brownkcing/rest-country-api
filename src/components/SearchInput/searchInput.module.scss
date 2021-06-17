@@ -1,0 +1,38 @@
+@import "../../scss/App.scss";
+
+svg {
+  color: grey;
+  cursor: pointer;
+}
+
+.searchbar {
+  button {
+    border: none;
+    padding: 0;
+    background: none;
+    position: relative;
+    margin-top: 8px;
+    top: 2px;
+    left: 15px;
+    width: 5px;
+    height: 12px;
+  }
+  input {
+    border-radius: 6px;
+    border-style: none;
+    background: #fff;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    padding: 0 3em;
+    width: 20em;
+    height: 35px;
+    &:focus::placeholder {
+      color: transparent;
+    }
+    &:focus,
+    textarea:focus {
+      box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+      border: 1px solid rgb(173, 173, 173);
+      outline: none;
+    }
+  }
+}

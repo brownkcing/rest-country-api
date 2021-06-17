@@ -1,4 +1,6 @@
 @import './mediaQueries';
+@import '~bootstrap/scss/bootstrap';
+
 
 .container {
     display: flex;   
@@ -6,6 +8,7 @@
     margin: 1em 15em;
     transition: all 0.3s linear 0s;
 }
+
 
 .wrapper {
     background: rgba(226, 226, 226, 0.596);

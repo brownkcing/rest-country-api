@@ -25,8 +25,7 @@ const SearchComp = () => {
             <button type="submit">
                 <FontAwesomeIcon icon={faSearch} />
             </button>
-            <input type="text" placeholder="Search for a country"></input>
-        {console.log(searchFilter)}
+            <input type="text" placeholder="Search for a country"/>
         </form>
     )
 };

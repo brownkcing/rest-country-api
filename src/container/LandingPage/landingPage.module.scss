@@ -1,0 +1,18 @@
+.mainContainer{
+  width: 100%;
+
+
+
+  .cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fontSize{
+    font-size: 16px;
+  }
+
+
+}

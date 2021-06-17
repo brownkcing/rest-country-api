@@ -1,0 +1,39 @@
+.row{
+  transition: all ease-in-out 500ms;
+  width: 100%;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #c2c2c2;
+  background: white;
+  cursor: pointer;
+
+
+  &.hoverEffect{
+    &:hover{
+      background: #d9d9d9;
+    }
+  }
+
+
+  &.header{
+    background: black;
+    color: white;
+    margin-top: 30px;
+  }
+
+  .flagCircle{
+    height: 45px;
+    width: 75px;
+    border-radius: 10px;
+    object-fit: cover;
+
+  }
+
+  .fontMedium{
+    font-weight: 500;
+  }
+
+  .fontLarge{
+    font-weight: 700;
+  }
+}
