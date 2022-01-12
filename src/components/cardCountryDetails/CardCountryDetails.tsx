@@ -19,9 +19,10 @@ const renderTextWithComma = (data: any, dataArr: any, index: any) => (
 
 const CardCountryDetails = () => {
     const {originalUrl} = useContext(ContextApiCountry)
+    const modifiedUrl =  originalUrl.slice(0, -4)
     const {name} = useParams<RouteParams>();
     const [countryData, setCountryData] = useState([]);
-    const countryCall = `${originalUrl}/name/${name}?fullText=true`;
+    const countryCall = `${modifiedUrl}/name/${name}?fullText=true`;
 
     useEffect(()=>{
         fetch(countryCall)
@@ -64,7 +65,7 @@ const CardCountryDetails = () => {
                                 </p>
                             </div>
                       </div>
-                        <CardContentBorders borders={country.borders} />
+                        <CardContentBorders borders={country} />
                   </div>
               </div>
             )}

@@ -9,17 +9,17 @@ const ToggleMode = () => {
     const [theme, setTheme] = themeName;
 
     const toggleMode = () => {
-        theme == 'darkMode' ? setTheme('dayMode') : setTheme('darkMode');
+        theme === 'darkMode' ? setTheme('dayMode') : setTheme('darkMode');
         {console.log("hello")}
     }
     return (
         <div className={style.togglewrapper}>
-            <span>{ theme == 'dayMode' ? 
+            <span>{ theme === 'dayMode' ? 
                         <FontAwesomeIcon className={style.sun} onClick={toggleMode} icon={faSun} />
                             :                         
                         <FontAwesomeIcon className={style.moon} onClick={toggleMode} icon={faMoon} /> }
             </span>
-            <span>{theme == 'dayMode' ? 'Day Mode' : 'Dark Mode'}</span> 
+            <span>{theme === 'dayMode' ? 'Day Mode' : 'Dark Mode'}</span> 
         </div>
     )
 }

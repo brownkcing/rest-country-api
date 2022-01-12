@@ -15,7 +15,7 @@ type ContextI = {
 export const ContextApiCountry = createContext<ContextI>({} as ContextI);
 
 export const ContextApiProviderCountry = ({children}:any) => {
-    const apiUrl = `https://restcountries.eu/rest/v2`;
+    const apiUrl = `https://restcountries.com/v2/all`;
     const [initialUrl, setInitialUrl] = useState<any>([]);
     const [initialFilterRegionData, setInitialFilterRegionData] = useState('');
     const [searchFilter, setSearchFilter] = useState('');
@@ -26,7 +26,7 @@ export const ContextApiProviderCountry = ({children}:any) => {
     ])
 
     useEffect(()=>{
-        fetch('https://restcountries.eu/rest/v2')
+        fetch('https://restcountries.com/v2/all')
         .then(res => res.json())
         .then(data => {
             setInitialUrl(data);

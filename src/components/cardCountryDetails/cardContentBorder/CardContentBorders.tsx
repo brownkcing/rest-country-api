@@ -8,10 +8,12 @@ const CardContentBorders = ({borders}:(CountryBordersI)) => {
     return(
         <div className={style.borderContainer}>
             <b>Borders: </b>
-                <div className={style.borders}>
-                    {borders.map((item:string, index:number)=>
+            <div className={style.borders}>
+                { borders.borders === undefined ? <div/> :
+                borders.borders.map( (item:string, index:number) =>
                         <span key={index}>{item}</span>
-                    )}
+                    )
+                }
             </div>
         </div>
     )

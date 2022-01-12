@@ -26,9 +26,9 @@ const FilterDrop = () => {
 
     return(
         <div className={style.dropdown}>
-            <div className={`${style.dropdownHeader} ${theme == 'dayMode' && style.dark}`} onClick={toggleDropdown}>{placeholder}
+            <div className={`${style.dropdownHeader} ${theme === 'dayMode' && style.dark}`} onClick={toggleDropdown}>{placeholder}
                 <span className={`${style.arrow} ${isOpen && style.open}`} />
-                <div className={`${style.dropdownBody} ${isOpen && style.open} ${theme == 'dayMode' && style.dark}`}>
+                <div className={`${style.dropdownBody} ${isOpen && style.open} ${theme === 'dayMode' && style.dark}`}>
                     {items.map((item:any)=>(
                         <li key={item.id} onClick={() => handleSelect(item.label)}>
                             <a href="#">{item.label}</a>
