@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import * as style from "./searchBar.module.scss";
+import * as style from "./searchbar.module.scss";
 import Filter from "./filter/Filter";
 import SearchComp from "./searchComp/SearchComp";
 
